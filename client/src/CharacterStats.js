@@ -1,4 +1,4 @@
-import { Col, Card, OverlayTrigger } from "react-bootstrap"
+import { Col, Card } from "react-bootstrap"
 
 export default function CharacterStats({ info }) {
     return (
@@ -12,9 +12,12 @@ export default function CharacterStats({ info }) {
                 <Card.Body>
                     <Card.Title>
                         {info.metadata.isActive &&
-                            <img src="https://emojiguide.com/wp-content/uploads/platform/windows/43604.png"
+                            <img 
+                                src="https://emojiguide.com/wp-content/uploads/platform/windows/43604.png"
                                 style={{ width: "15px", height: "15px" }}
-                            />}
+                                alt="currently selected legend"
+                            />
+                        }
                         {info.metadata.name}
                     </Card.Title>
                     {info.stats.hasOwnProperty('kills') ?
@@ -23,15 +26,15 @@ export default function CharacterStats({ info }) {
                                 {info.stats.kills.displayName}: {info.stats.kills.displayValue}
                             </Card.Text>
                             <Card.Text>
-                                Top: {100 - info.stats.kills.percentile}%
+                                Top: {Math.ceil(100 - info.stats.kills.percentile)}%
                             </Card.Text>
                         </> :
                         <>
                             <Card.Text>
-                                N/A
+                                Character stats is invalid
                             </Card.Text>
                             <Card.Text>
-                                N/A
+                                Please update character information
                             </Card.Text>
                         </>
                     }

@@ -9,7 +9,6 @@ export default function SearchBar( {platformSlug, setPlatformSlug, platformUserI
         formDataObj = Object.fromEntries(formData.entries())
         if (platformSlug === formDataObj.value) return
         setPlatformSlug(formDataObj.value)
-        // console.log(platformSlug + " " + formDataObj.value)
     }
 
     return (
